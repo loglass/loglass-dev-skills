@@ -1,0 +1,10 @@
+{
+  "name": "diagrams",
+  "description": "開発用ダイアグラムツール。現在は draw.io (.drawio) をサポート。アーキテクチャ図、ER図、フローチャート、ワイヤーフレーム、シーケンス図、クラス図に対応。",
+  "version": "1.0.0",
+  "author": {
+    "name": "Loglass Inc."
+  },
+  "repository": "https://github.com/loglass/loglass-dev-skills",
+  "license": "MIT"
+}

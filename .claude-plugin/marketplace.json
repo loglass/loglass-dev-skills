@@ -1,0 +1,19 @@
+{
+  "name": "loglass-dev-skills",
+  "owner": {
+    "name": "Loglass Inc."
+  },
+  "metadata": {
+    "description": "Loglass の開発用プラグイン集"
+  },
+  "plugins": [
+    {
+      "name": "diagrams",
+      "description": "ダイアグラムツール: draw.io (.drawio) でアーキテクチャ図、ER図、フローチャート等を作成・編集",
+      "version": "1.0.0",
+      "source": "./plugins/diagrams",
+      "license": "MIT",
+      "keywords": ["drawio", "diagram", "architecture", "er-diagram"]
+    }
+  ]
+}
