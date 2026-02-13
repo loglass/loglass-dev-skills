@@ -8,10 +8,10 @@
   },
   "plugins": [
     {
-      "name": "diagrams",
-      "description": "ダイアグラムツール: draw.io (.drawio) でアーキテクチャ図、ER図、フローチャート等を作成・編集",
+      "name": "drawio",
+      "description": "draw.io diagram tool for creating and editing architecture diagrams, ER diagrams, flowcharts, wireframes, sequence diagrams, class diagrams, and domain model diagrams",
       "version": "1.0.0",
-      "source": "./plugins/diagrams",
+      "source": "./plugins/drawio",
       "license": "MIT",
       "keywords": ["drawio", "diagram", "architecture", "er-diagram"]
     }

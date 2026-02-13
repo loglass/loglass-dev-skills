@@ -1,6 +1,6 @@
 {
-  "name": "diagrams",
-  "description": "開発用ダイアグラムツール。現在は draw.io (.drawio) をサポート。アーキテクチャ図、ER図、フローチャート、ワイヤーフレーム、シーケンス図、クラス図、ドメインモデル図に対応。",
+  "name": "drawio",
+  "description": "draw.io (.drawio) diagram tool for creating and editing architecture diagrams, ER diagrams, flowcharts, wireframes, sequence diagrams, class diagrams, and domain model diagrams",
   "version": "1.0.0",
   "author": {
     "name": "Loglass Inc."
