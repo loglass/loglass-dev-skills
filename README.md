@@ -18,13 +18,11 @@ Loglass の開発用 Claude Code プラグイン集。
 
 ### 2. プラグインをインストール
 
+必要なプラグインだけ選んでインストールできます。全プラグインが一括でインストールされることはありません。
+
 ```
 /plugin install diagrams@loglass-dev-skills
 ```
-
-### プラグイン個別インストール
-
-必要なプラグインだけ選んでインストールできます。全プラグインが一括でインストールされることはありません。
 
 ## 使い方
 
@@ -63,8 +61,8 @@ draw.io 形式 (.drawio) のダイアグラムを作成・読み込み・編集�
 ### プラグインの追加方法
 
 1. `plugins/<プラグイン名>/` ディレクトリを作成
-2. `.claude-plugin/plugin.json` にマニフェストを配置
-3. `skills/<スキル名>/SKILL.md` にスキル定義を配置
+2. `plugins/<プラグイン名>/.claude-plugin/plugin.json` にマニフェストを配置
+3. `plugins/<プラグイン名>/skills/<スキル名>/SKILL.md` にスキル定義を配置
 4. ルートの `.claude-plugin/marketplace.json` にプラグイン情報を追加
 
 ## ライセンス

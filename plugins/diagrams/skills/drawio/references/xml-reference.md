@@ -2,6 +2,27 @@
 
 draw.io の拡張 mxCell パターン、スタイル属性、カラーパレットのリファレンス。
 
+## XMLコメントの制約
+
+XMLコメント内では `--`（連続ハイフン2つ）が禁止されている（XML仕様の制約）。
+
+**NG例:**
+```xml
+<!-- Order ---> Customer -->  ❌ エラー
+<!-- Order ---- Customer --> ❌ エラー
+```
+
+**OK例:**
+```xml
+<!-- Order to Customer -->   ✅ 英語で区切る
+<!-- Order → Customer -->    ✅ 矢印記号を使う
+<!-- Order - Customer -->    ✅ ハイフン1つならOK
+```
+
+**推奨:**
+- エッジ（関連）のコメントは `to` で統一すると明確
+- 日本語は問題なし（`--` だけ注意）
+
 ## 拡張 mxCell パターン
 
 ### 点線矢印
@@ -150,11 +171,11 @@ style="...;points=[[0,0.5],[1,0.5],[0.5,0],[0.5,1]];"
 ```
 
 **スタイル指定:**
-```xml
-<!-- source側が親の場合: startArrow に◆を指定 -->
+```text
+source側が親の場合: startArrow に◆を指定
 startArrow=diamondThin;startFill=1;endArrow=none;
 
-<!-- target側が親の場合: endArrow に◆を指定 -->
+target側が親の場合: endArrow に◆を指定
 endArrow=diamondThin;endFill=1;startArrow=none;
 ```
 
