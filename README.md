@@ -44,7 +44,7 @@ You can selectively install only the plugins you need. All plugins will not be i
 
 For details on each plugin, please refer to the README in each directory.
 
-- [drawio](./plugins/drawio/README.md): draw.io ダイアグラムツール / draw.io diagram tool
+- [drawio](./plugins/drawio/): draw.io ダイアグラムツール / draw.io diagram tool
 
 ## コントリビューション / Contributing
 
