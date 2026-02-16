@@ -178,10 +178,25 @@ style="...;points=[[0,0.5],[1,0.5],[0.5,0],[0.5,1]];"
 | 属性         | 値                         | 説明         |
 |--------------|----------------------------|--------------|
 | `edgeStyle`  | orthogonalEdgeStyle        | 直角エッジ   |
-| `edgeStyle`  | entityRelationEdgeStyle    | ER図用       |
-| `curved`     | 1                          | 曲線         |
+| `edgeStyle`  | entityRelationEdgeStyle    | ER図用（出口・入口から一定距離まっすぐ出てから折れる） |
+| `curved`     | 1                          | 曲線（`edgeStyle=none` と組み合わせて使用） |
+| `rounded`    | 1                          | 角を丸める（直角の曲がり角がカーブになる） |
+| `elbow`      | vertical/horizontal        | 折れ曲がりの方向優先（vertical=縦優先） |
 | `startArrow` | none/classic/block/oval/diamond | 始点矢印 |
 | `endArrow`   | none/classic/block/oval/diamond | 終点矢印 |
+
+### エッジスタイルの使い分け
+
+- **短距離・隣接する要素間**: `edgeStyle=orthogonalEdgeStyle` — 直角接続。コンポジション（親子関係）やレイヤー間の依存など
+- **長距離・他の要素を跨ぐ可能性がある場合**: `edgeStyle=entityRelationEdgeStyle;rounded=1` — 出口・入口からまっすぐ出てから折れるため要素と重なりにくい。`rounded=1` で角が滑らかになる。集約間参照やモジュール間の依存など
+- **純粋な曲線**: `edgeStyle=none;curved=1` — 始点から終点へ滑らかなカーブで直接接続。短距離向き
+
+```xml
+<!-- 集約間参照の推奨スタイル（要素との重なりを避けやすい） -->
+<mxCell id="edge1" style="edgeStyle=entityRelationEdgeStyle;rounded=1;html=1;dashed=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="box1" target="box2">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+```
 
 ### コンポジション（◆）の向き
 

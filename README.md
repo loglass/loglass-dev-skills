@@ -2,63 +2,38 @@
 
 Loglass の開発用 Claude Code プラグイン集。
 
-Claude Code plugin collection for Loglass development.
-
 ## 言語ポリシー / Language Policy
 
-このリポジトリは日本語話者と英語話者が混在する環境を想定していますが、メンテナンスは日本語で行います。
+このリポジトリは日本語話者と英語話者が混在する環境を想定していますが、メンテナンスは日本語で行います。日本メンバーと GCC
+メンバー双方が参照しやすいよう、README は日本語・英語を併記しています。各ドキュメントは日本語パートの後に英語パートが続きます。
 
-This repository assumes a mixed Japanese and English speaking environment, but maintenance is done in Japanese.
+This repository assumes a mixed Japanese and English speaking environment, but maintenance is done in Japanese. READMEs
+are written in both Japanese and English so that both Japanese members and GCC members can easily reference them. Each
+document has a Japanese section followed by an English section.
 
-- **フロントマター**: 英語 / Frontmatter: English
-- **README**: 日本語を記載し、その下に英語も併記 / README: Japanese with English translation below
-- **SKILL.md と参照ドキュメント**: 日本語 / SKILL.md and reference docs: Japanese
+- **README**: 日本語の後に英語パート / Japanese followed by English
+- **SKILL.md と参照ドキュメント / SKILL.md and reference docs**: 日本語 / Japanese
 
-## プラグイン一覧 / Plugin List
+English version is available [below](#Plugin-List).
 
-| プラグイン / Plugin | 説明 / Description | バージョン / Version |
-|------------|------|------------|
-| [drawio](./plugins/drawio/) | draw.io (.drawio) でアーキテクチャ図、ER図、フローチャート等を作成・編集<br>Create and edit architecture diagrams, ER diagrams, flowcharts, etc. with draw.io | 1.0.0 |
+## プラグイン一覧
 
-## インストール / Installation
+| プラグイン                       | 説明                                             | バージョン |
+|-----------------------------|------------------------------------------------|-------|
+| [drawio](./plugins/drawio/) | draw.io (.drawio) でアーキテクチャ図、ER図、フローチャート等を作成・編集 | 1.0.0 |
 
-### 1. マーケットプレイスを追加 / Add Marketplace
-
-```
-/plugin marketplace add loglass/loglass-dev-skills
-```
-
-### 2. プラグインをインストール / Install Plugin
-
-必要なプラグインだけ選んでインストールできます。全プラグインが一括でインストールされることはありません。
-
-You can selectively install only the plugins you need. All plugins will not be installed at once.
-
-```
-/plugin install drawio@loglass-dev-skills
-```
-
-## プラグイン詳細 / Plugin Details
-
-各プラグインの詳細は、それぞれのディレクトリの README を参照してください。
-
-For details on each plugin, please refer to the README in each directory.
-
-- [drawio](./plugins/drawio/): draw.io ダイアグラムツール / draw.io diagram tool
-
-## コントリビューション / Contributing
+## コントリビューション
 
 プラグインの追加・改善の提案は Issue または Pull Request でお願いします。
 
+---
+
+## Plugin List
+
+| Plugin                      | Description                                                                                 | Version |
+|-----------------------------|---------------------------------------------------------------------------------------------|---------|
+| [drawio](./plugins/drawio/) | Create and edit architecture diagrams, ER diagrams, flowcharts, etc. with draw.io (.drawio) | 1.0.0   |
+
+## Contributing
+
 Suggestions for adding or improving plugins are welcome via Issues or Pull Requests.
-
-### プラグインの追加方法 / How to Add Plugins
-
-1. `plugins/<プラグイン名>/` ディレクトリを作成 / Create `plugins/<plugin-name>/` directory
-2. `plugins/<プラグイン名>/.claude-plugin/plugin.json` にマニフェストを配置 / Place manifest in `plugins/<plugin-name>/.claude-plugin/plugin.json`
-3. `plugins/<プラグイン名>/skills/<スキル名>/SKILL.md` にスキル定義を配置 / Place skill definition in `plugins/<plugin-name>/skills/<skill-name>/SKILL.md`
-4. ルートの `.claude-plugin/marketplace.json` にプラグイン情報を追加 / Add plugin info to root `.claude-plugin/marketplace.json`
-
-## ライセンス / License
-
-MIT License
