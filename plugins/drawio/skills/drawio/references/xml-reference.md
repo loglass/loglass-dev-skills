@@ -1,7 +1,8 @@
 # XML パターン & スタイル リファレンス
 
-draw.io の拡張 mxCell パターン、スタイル属性、カラーパレットのリファレンス。
-¨
+draw.io の mxCell パターン、スタイル属性、カラーパレットのリファレンス。
+
+## XMLコメントの制約
 
 **NG例:**
 ```xml
@@ -19,6 +20,32 @@ draw.io の拡張 mxCell パターン、スタイル属性、カラーパレッ�
 **推奨:**
 - エッジ（関連）のコメントは `to` で統一すると明確
 - 日本語は問題なし（`--` だけ注意）
+
+## 基本 mxCell パターン
+
+### 矩形（ボックス）
+
+```xml
+<mxCell id="box1" value="ラベル" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+  <mxGeometry x="100" y="100" width="120" height="60" as="geometry" />
+</mxCell>
+```
+
+### テキスト
+
+```xml
+<mxCell id="text1" value="テキスト内容" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+  <mxGeometry x="100" y="100" width="100" height="30" as="geometry" />
+</mxCell>
+```
+
+### 矢印（エッジ）
+
+```xml
+<mxCell id="edge1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="box1" target="box2">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+```
 
 ## 拡張 mxCell パターン
 
@@ -178,3 +205,51 @@ endArrow=diamondThin;endFill=1;startArrow=none;
 
 - `diamondThin` = 白抜きひし形（集約）
 - `startFill=1` / `endFill=1` = 塗りつぶし（コンポジション）
+
+## 読み込み時の解析例
+
+### アーキテクチャ図から構造を抽出
+
+```xml
+<mxCell id="domain-group" value="domain/" style="swimlane;..." />
+<mxCell id="usecase-group" value="usecase/" style="swimlane;..." />
+<mxCell id="arrow1" source="usecase-group" target="domain-group" edge="1" />
+```
+
+解析結果:
+
+```text
+レイヤー構造:
+- domain/ (青: #dae8fc) - 中心層
+- usecase/ (黄: #fff2cc) - ユースケース層
+
+依存関係:
+- usecase → domain (依存)
+```
+
+### ドメインモデルから用語を抽出
+
+```xml
+<mxCell id="entity1" value="注文&#xa;Order" style="rounded=1;fillColor=#dae8fc;..." />
+<mxCell id="entity2" value="顧客&#xa;Customer" style="rounded=1;fillColor=#dae8fc;..." />
+<mxCell id="edge1" source="entity1" target="entity2" style="..." edge="1" />
+```
+
+解析結果:
+
+```text
+エンティティ:
+- 注文 (Order)
+- 顧客 (Customer)
+
+関連:
+- 注文 → 顧客
+```
+
+### 解析のポイント
+
+- `value` 属性からラベルを取得（`&#xa;` は改行なので日本語名/英語名を分離できる）
+- `source`/`target` 属性からエッジの接続関係を読み取る
+- `style` の `fillColor` から要素の分類（レイヤー、種別）を判別する
+- `parent` 属性からグループの親子関係を復元する
+- `<object>` タグがある場合はカスタムプロパティも抽出する
