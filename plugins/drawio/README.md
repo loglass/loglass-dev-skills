@@ -57,6 +57,17 @@ winget install -e --id JGraph.Draw
 /plugin install drawio@loglass-dev-skills
 ```
 
+#### 自動更新の設定（推奨）
+
+プラグインを常に最新の状態に保つため、マーケットプレイスの自動更新を有効にしてください。
+
+1. `/plugin` を実行
+2. **Marketplaces** タブを選択
+3. **loglass-dev-skills** を選択
+4. **Enable auto-update** を選択
+
+> 一度設定すれば、以降はプラグインの更新が自動的に適用されます。
+
 ### Cursor の場合
 
 SKILL.md は[オープン標準](https://www.mintlify.com/blog/skill-md)として複数の AI コーディングツールで対応しています。このリポジトリをクローンし、Cursor のグローバルスキルディレクトリ (`~/.cursor/skills/`) へシンボリックリンクを作成してください。
@@ -165,6 +176,17 @@ Launch `claude` in your terminal and run the following commands.
 /plugin marketplace add loglass/loglass-dev-skills
 /plugin install drawio@loglass-dev-skills
 ```
+
+#### Auto-Update Setup (Recommended)
+
+To keep plugins up to date automatically, enable auto-update for the marketplace.
+
+1. Run `/plugin`
+2. Select the **Marketplaces** tab
+3. Select **loglass-dev-skills**
+4. Select **Enable auto-update**
+
+> Once configured, plugin updates will be applied automatically.
 
 ### For Cursor Users
 
